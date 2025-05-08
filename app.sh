@@ -26,7 +26,7 @@ function tampilkan_menu() {
 
 # membuat function pengecekan pilihan menu
 if [ "$operasi" -eq 5 ]; then
-  echo "Terima kasih sudah menggunakan Kalkulator Sederhana."
+  echo "Terima kasih sudah menggunakan Penghitung Luas Bangun Datar."
   exit 0
 elif ! [[ "$operasi" =~ ^[1-4]$ ]]; then
   echo -e "${RED_BG}Pilihan tidak valid. Silakan masukkan angka antara 1 sampai 5."
