@@ -7,13 +7,6 @@ CYAN='\033[0;36m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# code warna background ANSI
-RED_BG='\033[0;41m'
-GREEN_BG='\033[0;42m'
-CYAN_BG='\033[0;46m'
-YELLOW_BG='\033[0;43m'
-NC_BG='\033[0m' # No Color
-
 # membuat function untuk menampilkan menu
 function tampilkan_menu() {
   echo -e "${CYAN}=== Penghitung Luas Bangun Datar ===${NC}"
@@ -29,7 +22,7 @@ if [ "$operasi" -eq 5 ]; then
   echo "Terima kasih sudah menggunakan Penghitung Luas Bangun Datar."
   exit 0
 elif ! [[ "$operasi" =~ ^[1-4]$ ]]; then
-  echo -e "${RED_BG}Pilihan tidak valid. Silakan masukkan angka antara 1 sampai 5."
+  echo -e "${RED}Pilihan tidak valid. Silakan masukkan angka antara 1 sampai 5."
   sleep 2
   continue
 fi
@@ -44,7 +37,7 @@ function input_angka() {
     if [[ -z "$input" ]]; then
       echo -e "${YELLOW_BG}Input tidak boleh kosong.${NC}"
     elif ! [[ "$input" =~ ^[0-9]+([.][0-9]+)?$ ]]; then
-      echo -e "${RED_BG}Input harus berupa angka.${NC}"
+      echo -e "${RED}Input harus berupa angka.${NC}"
     else
       echo $input
       break
@@ -56,7 +49,7 @@ function input_angka() {
 function luas_persegi() {
   local sisi=$1
   local luas=$(( sisi * sisi ))
-  echo "Luas persegi dengan sisi $sisi adalah $luas"
+  echo -e "${GREEN}Luas persegi dengan sisi $sisi adalah $luas"
 }
 
 # membuat function untuk menghitung luas persegi panjang
@@ -64,14 +57,14 @@ function luas_persegi_panjang() {
   local panjang=$1
   local lebar=$2
   local luas=$(( panjang * lebar ))
-  echo "Luas persegi panjang dengan panjang $panjang dan lebar $lebar adalah $luas"
+  echo -e "${GREEN}Luas persegi panjang dengan panjang $panjang dan lebar $lebar adalah $luas"
 }
 
 # membuat function untuk menghitung luas lingkaran
 function luas_lingkaran() {
   local jari_jari=$1
   local luas=$(echo "3.14 * ($jari_jari ^ 2)" | bc)
-  echo "Luas lingkaran dengan jari-jari $jari_jari adalah $luas"
+  echo -e "${GREEN}Luas lingkaran dengan jari-jari $jari_jari adalah $luas"
 }
 
 # membuat function untuk menghitung luas segitiga
@@ -79,7 +72,7 @@ function luas_segitiga() {
   local alas=$1
   local tinggi=$2
   local luas=$(( alas * tinggi / 2 ))
-  echo "Luas segitiga dengan alas $alas dan tinggi $tinggi adalah $luas"
+  echo -e "${GREEN}Luas segitiga dengan alas $alas dan tinggi $tinggi adalah $luas"
 }
 
 # perulangan utama (main loop)
@@ -117,7 +110,7 @@ clear
       exit 0
       ;;
     *)
-      echo -e "${RED_BG}Pilihan tidak valid. Silakan masukkan angka antara 1 sampai 5."
+      echo -e "${RED}Pilihan tidak valid. Silakan masukkan angka antara 1 sampai 5."
       sleep 2
       ;;
   esac
