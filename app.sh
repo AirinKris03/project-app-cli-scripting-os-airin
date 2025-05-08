@@ -58,3 +58,26 @@ function luas_persegi() {
   local luas=$(( sisi * sisi ))
   echo "Luas persegi dengan sisi $sisi adalah $luas"
 }
+
+# membuat function untuk menghitung luas persegi panjang
+function luas_persegi_panjang() {
+  local panjang=$1
+  local lebar=$2
+  local luas=$(( panjang * lebar ))
+  echo "Luas persegi panjang dengan panjang $panjang dan lebar $lebar adalah $luas"
+}
+
+# membuat function untuk menghitung luas lingkaran
+function luas_lingkaran() {
+  local jari_jari=$1
+  local luas=$(echo "3.14 * ($jari_jari ^ 2)" | bc)
+  echo "Luas lingkaran dengan jari-jari $jari_jari adalah $luas"
+}
+
+# membuat function untuk menghitung luas segitiga
+function luas_segitiga() {
+  local alas=$1
+  local tinggi=$2
+  local luas=$(( alas * tinggi / 2 ))
+  echo "Luas segitiga dengan alas $alas dan tinggi $tinggi adalah $luas"
+}
