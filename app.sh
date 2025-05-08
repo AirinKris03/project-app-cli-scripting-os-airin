@@ -17,6 +17,16 @@ function tampilkan_menu() {
   echo "5. Keluar${NC}"
 }
 
+# membuat function pengecekan pilihan menu
+if [ "$operasi" -eq 5 ]; then
+  echo "Terima kasih sudah menggunakan Kalkulator Sederhana."
+  exit 0
+elif ! [[ "$operasi" =~ ^[1-4]$ ]]; then
+  echo "Pilihan tidak valid. Silakan masukkan angka antara 1 sampai 5."
+  sleep 2
+  continue
+fi
+
 # membuat function validasi inputan
 function input_angka() {
   local prompt=$1
