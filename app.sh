@@ -16,7 +16,7 @@ NC_BG='\033[0m' # No Color
 
 # membuat function untuk menampilkan menu
 function tampilkan_menu() {
-  echo -e "${CYAN}=== Kalkulator Luas Bangun Datar ===${NC}"
+  echo -e "${CYAN}=== Penghitung Luas Bangun Datar ===${NC}"
   echo -e "${YELLOW}1. Persegi"
   echo -e "${YELLOW}2. Persegi Panjang"
   echo -e "${YELLOW}3. Lingkaran"
@@ -50,4 +50,11 @@ function input_angka() {
       break
     fi
   done
+}
+
+# membuat function untuk menghitung luas persegi
+function luas_persegi() {
+  local sisi=$1
+  local luas=$(( sisi * sisi ))
+  echo "Luas persegi dengan sisi $sisi adalah $luas"
 }
