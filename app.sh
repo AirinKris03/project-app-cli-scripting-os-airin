@@ -18,11 +18,15 @@ function tampilkan_menu() {
 }
 
 # membuat function pengecekan pilihan menu
-if [ "$operasi" -eq 5 ]; then
+if [[ ! "$pilihan" =~ ^[0-9]+$ ]]; then
+  echo -e "${RED}Pilihan tidak valid. Masukkan angka antara 1 sampai 5.${NC}"
+  sleep 2
+  continue
+elif [ "$pilihan" -eq 5 ]; then
   echo "Terima kasih sudah menggunakan Penghitung Luas Bangun Datar."
   exit 0
-elif ! [[ "$operasi" =~ ^[1-4]$ ]]; then
-  echo -e "${RED}Pilihan tidak valid. Silakan masukkan angka antara 1 sampai 5."
+elif [[ ! "$pilihan" =~ ^[1-4]$ ]]; then
+  echo -e "${RED}Pilihan tidak valid. Silakan masukkan angka antara 1 sampai 5.${NC}"
   sleep 2
   continue
 fi
