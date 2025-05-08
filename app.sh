@@ -17,20 +17,6 @@ function tampilkan_menu() {
   echo "5. Keluar"
 }
 
-# membuat function pengecekan pilihan menu
-if [[ ! "$pilihan" =~ ^[0-9]+$ ]]; then
-  echo -e "${RED}Pilihan tidak valid. Masukkan angka antara 1 sampai 5.${NC}"
-  sleep 2
-  continue
-elif [ "$pilihan" -eq 5 ]; then
-  echo "Terima kasih sudah menggunakan Penghitung Luas Bangun Datar."
-  exit 0
-elif [[ ! "$pilihan" =~ ^[1-4]$ ]]; then
-  echo -e "${RED}Pilihan tidak valid. Silakan masukkan angka antara 1 sampai 5.${NC}"
-  sleep 2
-  continue
-fi
-
 # membuat function validasi inputan
 function input_angka() {
   local prompt=$1
