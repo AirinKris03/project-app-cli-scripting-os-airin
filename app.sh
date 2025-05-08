@@ -21,7 +21,7 @@ function tampilkan_menu() {
   echo -e "${YELLOW}2. Persegi Panjang"
   echo -e "${YELLOW}3. Lingkaran"
   echo -e "${YELLOW}4. Segitiga"
-  echo "5. Keluar${NC}"
+  echo "5. Keluar"
 }
 
 # membuat function pengecekan pilihan menu
@@ -81,3 +81,46 @@ function luas_segitiga() {
   local luas=$(( alas * tinggi / 2 ))
   echo "Luas segitiga dengan alas $alas dan tinggi $tinggi adalah $luas"
 }
+
+# perulangan utama (main loop)
+while true; do
+clear
+  tampilkan_menu
+  echo
+  read -p "Pilih bangun datar yang ingin Kamu ketahui luasnya: " pilihan
+
+  case $pilihan in
+    1)
+      echo -e "${CYAN}=== Menghitung Luas Persegi ===${NC}"
+      sisi=$(input_angka "Masukkan sisi persegi: ")
+      luas_persegi $sisi
+      ;;
+    2)
+      echo -e "${CYAN}=== Menghitung Luas Persegi Panjang ===${NC}"
+      panjang=$(input_angka "Masukkan panjang persegi panjang: ")
+      lebar=$(input_angka "Masukkan lebar persegi panjang: ")
+      luas_persegi_panjang $panjang $lebar
+      ;;
+    3)
+      echo -e "${CYAN}=== Menghitung Luas Lingkaran ===${NC}"
+      jari_jari=$(input_angka "Masukkan jari-jari lingkaran: ")
+      luas_lingkaran $jari_jari
+      ;;
+    4)
+      echo -e "${CYAN}=== Menghitung Luas Segitiga ===${NC}"
+      alas=$(input_angka "Masukkan alas segitiga: ")
+      tinggi=$(input_angka "Masukkan tinggi segitiga: ")
+      luas_segitiga $alas $tinggi
+      ;;
+    5)
+      echo "Terima kasih sudah menggunakan Penghitung Luas Bangun Datar."
+      exit 0
+      ;;
+    *)
+      echo -e "${RED_BG}Pilihan tidak valid. Silakan masukkan angka antara 1 sampai 5."
+      sleep 2
+      ;;
+  esac
+  echo -e "\nTekan Enter untuk melanjutkan..."
+  read
+done
