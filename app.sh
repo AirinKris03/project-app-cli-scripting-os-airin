@@ -16,3 +16,21 @@ function tampilkan_menu() {
   echo "4. Segitiga"
   echo "5. Keluar${NC}"
 }
+
+# membuat function validasi inputan
+function input_angka() {
+  local prompt=$1
+  local input
+
+  while true; do
+    read -p "$prompt" input
+    if [[ -z "$input" ]]; then
+      echo -e "${RED}Input tidak boleh kosong.${NC}"
+    elif ! [[ "$input" =~ ^[0-9]+([.][0-9]+)?$ ]]; then
+      echo -e "${RED}Input harus berupa angka.${NC}"
+    else
+      echo $input
+      break
+    fi
+  done
+}
